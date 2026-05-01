@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Bazaar Shadnagar - Premium Clothing & Lifestyle</title>
+    <meta name="description"
+        content="Discover Shadnagar's premier destination for Fashion & Textiles. Over 500+ new patterns in Menswear, Ladies Wear, and Kids Wear. Visit us for exclusive offers!">
+    <meta property="og:title" content="Big Bazaar Shadnagar - Clothing & Lifestyle">
+    <meta property="og:description" content="Premium Suits, Shirts, Dresses, and Ethnic Wear in Shadnagar.">
+    <meta property="og:type" content="website">
+    <style>
+        :root {
+            --primary-bg: #001F3F;
+            /* Deep Navy Blue */
+            --secondary-bg: #f8f9fa;
+            --accent-gold: #D4AF37;
+            /* Gold */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--secondary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Premium Header */
+        header {
+            background-color: transparent;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--primary-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .header-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-btn:hover {
+            background-color: #e5c158;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            padding: 10rem 5% 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes subtleZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=80') center/cover;
+            z-index: 1;
+            animation: subtleZoom 20s infinite alternate;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .cta-btn {
+            background-color: var(--text-light);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-light);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .badge svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-gold);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary-bg);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item h3 {
+            padding: 1.5rem;
+            color: var(--primary-bg);
+            font-size: 1.4rem;
+        }
+
+        /* AI Strategy Section */
+        .ai-section {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .ai-box {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid var(--accent-gold);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .ai-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .ai-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-btn {
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testi-card {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-gold);
+            text-align: left;
+        }
+
+        .testi-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .testi-card h4 {
+            color: var(--primary-bg);
+            font-weight: bold;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: var(--secondary-bg);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .map-container {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+            display: block;
+        }
+
+        .lead-form-container {
+            flex: 1;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-discount-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .lead-form-container h2 {
+            text-align: center;
+            color: var(--primary-bg);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-bg);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-bg);
+            color: var(--accent-gold);
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #001224;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000c1a;
+            color: #a0a0a0;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info h4 {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .whatsapp-link:hover {
+            transform: scale(1.05);
+        }
+
+        .copyright {
+            width: 100%;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-widget svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-bg);
+        }
+
+        /* Chat Box */
+        .chat-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .chat-box.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            padding: 1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 1rem;
+            height: 250px;
+            background-color: #f9f9f9;
+            overflow-y: auto;
+        }
+
+        .chat-msg {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            font-size: 0.9rem;
+        }
+
+        .chat-msg.bot {
+            background-color: var(--primary-bg);
+            color: white;
+            align-self: flex-start;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+            background: #fff;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .chat-footer button {
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+
+            .gallery-grid,
+            .testi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .gallery-grid,
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-container {
+                flex-direction: column-reverse;
+            }
+
+            .lead-form-container {
+                padding: 2rem;
+            }
+
+            header {
+                padding: 1rem 5%;
+                background-color: var(--primary-bg);
+                /* Solid on mobile for better visibility */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Premium Header -->
+    <header id="main-header">
+        <a href="#" class="logo">Big Bazaar <span>Shadnagar</span></a>
+        <a href="tel:+8332059777" class="header-btn">Call Now</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Shadnagar's Premier Destination for Fashion & Textiles.</h1>
+            <p>Discover 500+ New Patterns in Suits, Shirts, and Lifestyle Wear.</p>
+            <button class="cta-btn scroll-to" data-target="#store">Visit Store</button>
+
+            <div class="trust-badges">
+                <div class="badge">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                    </svg>
+                    100% Premium Quality
+                </div>
+                <div class="badge">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+                    </svg>
+                    Exclusive Collections
+                </div>
+                <div class="badge">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    Trusted in Shadnagar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="store">
+        <h2 class="section-title">Our Collections</h2>
+        <div class="gallery-grid">
+            <a href="mens.html" style="text-decoration: none; display: block;">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1594938298598-71ee52c37bc6?auto=format&fit=crop&w=600&q=80"
+                        alt="Menswear" loading="lazy">
+                    <h3>Menswear</h3>
+                </div>
+            </a>
+            <a href="ladies.html" style="text-decoration: none; display: block;">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
+                        alt="Ladies Wear" loading="lazy">
+                    <h3>Ladies Wear</h3>
+                </div>
+            </a>
+            <a href="kids.html" style="text-decoration: none; display: block;">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80"
+                        alt="Kids Wear" loading="lazy">
+                    <h3>Kids Wear</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- AI Strategy Section -->
+    <section class="ai-section">
+        <div class="ai-box">
+            <h2>Smart Shopping Assistant</h2>
+            <p>Our AI helps you find the right fabric before you visit.</p>
+            <button class="ai-btn" id="openChatBtn">Chat with AI Stylist</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"The best collection of premium suiting in Shadnagar. The quality of fabric and their customer
+                    service is unmatched. Highly recommended!"</p>
+                <h4>- Rahul S.</h4>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"I bought my festive wear from Big Bazaar Shadnagar and everyone loved it. They have the latest
+                    trends at very reasonable prices."</p>
+                <h4>- Priya M.</h4>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"A complete family store. Got amazing outfits for my kids and a great shirt for myself. Will
+                    definitely visit again."</p>
+                <h4>- Vikram R.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15250.776077395726!2d78.2016335!3d17.0700547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbae2a2a0eb921%3A0x72922efde6de4dc9!2sShadnagar%2C%20Telangana!5e0!3m2!1sen!2sin!4v1714654316000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="lead-form-container">
+                <h2>Let Us Help You Find Your Style</h2>
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required pattern="[0-9]{10}"
+                            title="Please enter a valid 10-digit mobile number"
+                            placeholder="Enter 10-digit phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">What are you looking for?</label>
+                        <select id="interest" required>
+                            <option value="">Select a category</option>
+                            <option value="mens-wear">Men's Ready-to-Wear</option>
+                            <option value="textiles">Premium Suiting & Shirting</option>
+                            <option value="ethnic">Ethnic & Festive Wear</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                    <p class="form-discount-text">Visit us at our Shadnagar store for an exclusive 10% discount!</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>Store Address</h4>
+                <p>Main Road, Shadnagar</p>
+                <p>Telangana, India</p>
+            </div>
+            <div class="footer-info">
+                <h4>Store Hours</h4>
+                <p>Monday - Sunday: 10:00 AM - 9:00 PM</p>
+            </div>
+            <div class="footer-info">
+                <a href="https://wa.me/8332059777" target="_blank" class="whatsapp-link">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                    WhatsApp Us
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Big Bazaar Shadnagar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget UI -->
+    <div class="chat-widget" id="chatWidgetBtn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" />
+            <path d="M7 9H17V11H7V9Z" />
+            <path d="M7 12H14V14H7V12Z" />
+            <path d="M7 6H17V8H7V6Z" />
+        </svg>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span>AI Stylist</span>
+            <button class="close-chat" id="closeChatBtn">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">Hi there! Welcome to Big Bazaar Shadnagar. Are you looking for Menswear, Ladies
+                Wear, or Kids Wear today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendChatBtn">Send</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Sticky Header Logic
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth > 768) {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // Smooth Scrolling
+            const scrollButtons = document.querySelectorAll('.scroll-to');
+            scrollButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form Submission Alert
+            const leadForm = document.getElementById('leadForm');
+            leadForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                alert(`Success, ${name}! Your inquiry has been received. Click the "Directions" button on the map to navigate to our Shadnagar store.`);
+                leadForm.reset();
+            });
+
+            // Chat Widget Toggle
+            const chatWidgetBtn = document.getElementById('chatWidgetBtn');
+            const openChatBtn = document.getElementById('openChatBtn');
+            const closeChatBtn = document.getElementById('closeChatBtn');
+            const chatBox = document.getElementById('chatBox');
+
+            function toggleChat() {
+                chatBox.classList.toggle('active');
+            }
+
+            chatWidgetBtn.addEventListener('click', toggleChat);
+            openChatBtn.addEventListener('click', function () {
+                chatBox.classList.add('active');
+            });
+            closeChatBtn.addEventListener('click', function () {
+                chatBox.classList.remove('active');
+            });
+
+            // Advanced Chatbot Logic for Lead Generation (WhatsApp Handoff)
+            const sendChatBtn = document.getElementById('sendChatBtn');
+            const chatInput = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+
+            let chatState = 0;
+            let userInterest = "";
+            let userDetails = "";
+
+            function appendBotMessage(text, isHtml = false) {
+                const botMsgEl = document.createElement('div');
+                botMsgEl.classList.add('chat-msg', 'bot');
+                if (isHtml) {
+                    botMsgEl.innerHTML = text;
+                } else {
+                    botMsgEl.textContent = text;
+                }
+                chatBody.appendChild(botMsgEl);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message !== '') {
+                    // Add user message
+                    const userMsgEl = document.createElement('div');
+                    userMsgEl.classList.add('chat-msg');
+                    userMsgEl.style.alignSelf = 'flex-end';
+                    userMsgEl.style.backgroundColor = '#d4af37';
+                    userMsgEl.style.color = '#001f3f';
+                    userMsgEl.textContent = message;
+
+                    const msgContainer = document.createElement('div');
+                    msgContainer.style.display = 'flex';
+                    msgContainer.style.flexDirection = 'column';
+                    msgContainer.appendChild(userMsgEl);
+                    chatBody.appendChild(msgContainer);
+
+                    chatInput.value = '';
+                    chatBody.scrollTop = chatBody.scrollHeight;
+
+                    // Simple State Machine for Chat
+                    setTimeout(() => {
+                        if (chatState === 0) {
+                            userInterest = message;
+                            appendBotMessage("Great choice! We have exclusive new arrivals for that. To share a special 10% discount code with you, could you please provide your Name and Phone Number?");
+                            chatState++;
+                        } else if (chatState === 1) {
+                            userDetails = message;
+                            const whatsappMsg = encodeURIComponent(`Hi! My details are: ${userDetails}. I am interested in: ${userInterest}. I'm reaching out from the website chatbot to claim my 10% discount.`);
+                            const whatsappLink = `https://wa.me/8332059777?text=${whatsappMsg}`;
+
+                            appendBotMessage(`Perfect! We've noted your details. Click the button below to message us securely on WhatsApp to confirm and save your offer! <br><br><a href="${whatsappLink}" target="_blank" style="display:inline-block; background:#25D366; color:white; padding:8px 12px; text-decoration:none; border-radius:4px; font-weight:bold; font-size: 0.9rem; margin-top: 10px;">Confirm on WhatsApp</a>`, true);
+
+                            chatState++;
+                        } else {
+                            appendBotMessage("If you need anything else, just click the WhatsApp button above or visit our store in Shadnagar!");
+                        }
+                    }, 800);
+                }
+            }
+
+            sendChatBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
