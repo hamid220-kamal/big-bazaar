@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Bazaar Shadnagar - Premium Clothing & Lifestyle</title>
+    <title>Bigg Bazar Shadnagar - Complete Home Needs Mall</title>
     <meta name="description"
-        content="Discover Shadnagar's premier destination for Fashion & Textiles. Over 500+ new patterns in Menswear, Ladies Wear, and Kids Wear. Visit us for exclusive offers!">
-    <meta property="og:title" content="Big Bazaar Shadnagar - Clothing & Lifestyle">
-    <meta property="og:description" content="Premium Suits, Shirts, Dresses, and Ethnic Wear in Shadnagar.">
+        content="Discover Shadnagar's premier Complete Home Needs Mall. Groceries, Kitchenware, Appliances, and Home Furnishing across 3 floors.">
+    <meta property="og:title" content="Bigg Bazar Shadnagar - Complete Home Needs Mall">
+    <meta property="og:description" content="Premium Groceries, Kitchenware, Appliances, and Home Furnishing in Shadnagar.">
     <meta property="og:type" content="website">
     <style>
         :root {
-            --primary-bg: #001F3F;
-            /* Deep Navy Blue */
+            --primary-bg: #1d3557;
+            /* Royal Blue */
             --secondary-bg: #f8f9fa;
-            --accent-gold: #D4AF37;
-            /* Gold */
+            --accent-gold: #ff6b35;
+            /* Vibrant Orange */
             --text-light: #ffffff;
             --text-dark: #333333;
         }
@@ -117,7 +117,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80') center/cover;
             z-index: 1;
             animation: subtleZoom 20s infinite alternate;
         }
@@ -143,6 +143,13 @@
             color: #e0e0e0;
         }
 
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-btn {
             background-color: var(--text-light);
             color: var(--primary-bg);
@@ -160,6 +167,55 @@
 
         .cta-btn:hover {
             background-color: var(--accent-gold);
+            color: var(--text-light);
+        }
+
+        .location-btn {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .location-btn:hover {
+            background-color: var(--text-light);
+            color: var(--primary-bg);
+        }
+
+        /* Floor Navigation */
+        .floor-nav {
+            background-color: var(--secondary-bg);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: sticky;
+            top: 70px;
+            z-index: 990;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+
+        .floor-btn {
+            background-color: transparent;
+            color: var(--primary-bg);
+            border: 2px solid var(--primary-bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .floor-btn:hover, .floor-btn.active {
+            background-color: var(--primary-bg);
             color: var(--text-light);
         }
 
@@ -187,10 +243,112 @@
             fill: var(--accent-gold);
         }
 
-        /* Gallery Section */
-        .gallery-section {
+        /* Floor Sections */
+        .floor-section {
             padding: 5rem 5%;
             text-align: center;
+        }
+
+        .floor-section:nth-child(even) {
+            background-color: #fff;
+        }
+
+        .floor-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .floor-header svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-gold);
+        }
+
+        .floor-header h2 {
+            color: var(--primary-bg);
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .floor-desc {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .floor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .floor-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .floor-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .floor-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .floor-item p {
+            padding: 1rem;
+            font-weight: bold;
+            color: var(--primary-bg);
+            margin: 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            display: none;
+        }
+        .categories-section {
+            display: none;
         }
 
         .section-title {
@@ -657,68 +815,120 @@
 
     <!-- Premium Header -->
     <header id="main-header">
-        <a href="#" class="logo">Big Bazaar <span>Shadnagar</span></a>
+        <a href="#" class="logo">Bigg Bazar <span>Shadnagar</span></a>
         <a href="tel:+8332059777" class="header-btn">Call Now</a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Shadnagar's Premier Destination for Fashion & Textiles.</h1>
-            <p>Discover 500+ New Patterns in Suits, Shirts, and Lifestyle Wear.</p>
-            <button class="cta-btn scroll-to" data-target="#store">Visit Store</button>
+            <h1>Shadnagar's Largest China Bazaar Style Mall.</h1>
+            <p>Unbeatable Variety & Value for Money across 3 Spectacular Floors.</p>
+            <div class="cta-container">
+                <button class="cta-btn scroll-to" data-target="#ground-floor">Explore Floors</button>
+                <a href="#contact" class="location-btn scroll-to" data-target="#contact">Get Location</a>
+            </div>
 
             <div class="trust-badges">
                 <div class="badge">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-                    </svg>
-                    100% Premium Quality
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
+                    Value for Money
                 </div>
                 <div class="badge">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
-                    </svg>
-                    Exclusive Collections
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" /></svg>
+                    Widest Variety
                 </div>
                 <div class="badge">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
                     Trusted in Shadnagar
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="store">
-        <h2 class="section-title">Our Collections</h2>
-        <div class="gallery-grid">
-            <a href="mens.html" style="text-decoration: none; display: block;">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1594938298598-71ee52c37bc6?auto=format&fit=crop&w=600&q=80"
-                        alt="Menswear" loading="lazy">
-                    <h3>Menswear</h3>
-                </div>
-            </a>
-            <a href="ladies.html" style="text-decoration: none; display: block;">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
-                        alt="Ladies Wear" loading="lazy">
-                    <h3>Ladies Wear</h3>
-                </div>
-            </a>
-            <a href="kids.html" style="text-decoration: none; display: block;">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80"
-                        alt="Kids Wear" loading="lazy">
-                    <h3>Kids Wear</h3>
-                </div>
-            </a>
+    <!-- Floor Navigator -->
+    <div class="floor-nav" id="floorNav">
+        <button class="floor-btn scroll-to" data-target="#ground-floor">Ground Floor</button>
+        <button class="floor-btn scroll-to" data-target="#first-floor">1st Floor</button>
+        <button class="floor-btn scroll-to" data-target="#second-floor">2nd Floor</button>
+    </div>
+
+    <!-- Floors Section -->
+    <section class="floor-section" id="ground-floor">
+        <div class="floor-header">
+            <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1h-4v-2h4zM9 4c.55 0 1 .45 1 1h-4c0-.55.45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+            <h2>Ground Floor</h2>
+        </div>
+        <p class="floor-desc">Gifts, Toys, Stationery, and Seasonal Decor</p>
+        <div class="floor-grid">
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=600&q=80" alt="Gifts">
+                <p>Gift Articles</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" alt="Toys">
+                <p>Toys & Games</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Stationery">
+                <p>Stationery</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1576014131795-d5e08c4a4a83?auto=format&fit=crop&w=600&q=80" alt="Decor">
+                <p>Seasonal Decor</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="floor-section" id="first-floor">
+        <div class="floor-header">
+            <svg viewBox="0 0 24 24"><path d="M18 7H3v2h15v-2zM3 11h15v2H3v-2zm19-8v2h-2v11c0 2.21-1.79 4-4 4H7c-2.21 0-4-1.79-4-4V5H1V3h20zM5 16c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5H5v11z"/></svg>
+            <h2>1st Floor</h2>
+        </div>
+        <p class="floor-desc">Home Appliances, Crockery, and Kitchen Essentials</p>
+        <div class="floor-grid">
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80" alt="Kitchenware">
+                <p>Kitchen Essentials</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1585223292415-4ba82b6cc44f?auto=format&fit=crop&w=600&q=80" alt="Crockery">
+                <p>Crockery & Dinner Sets</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1583315891392-45e07661bbfe?auto=format&fit=crop&w=600&q=80" alt="Appliances">
+                <p>Home Appliances</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1578470520211-5364179373de?auto=format&fit=crop&w=600&q=80" alt="Mixer">
+                <p>Mixers & Blenders</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="floor-section" id="second-floor">
+        <div class="floor-header">
+            <svg viewBox="0 0 24 24"><path d="M17 6h-2V3c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v3H7c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM11 4h2v2h-2V4zm6 15H7V8h10v11z"/></svg>
+            <h2>2nd Floor</h2>
+        </div>
+        <p class="floor-desc">Plasticware, Luggage, Cleaning Tools, and Small Furniture</p>
+        <div class="floor-grid">
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" alt="Plasticware">
+                <p>Plasticware</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=600&q=80" alt="Luggage">
+                <p>Luggage & Bags</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Cleaning">
+                <p>Cleaning Tools</p>
+            </div>
+            <div class="floor-item">
+                <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80" alt="Furniture">
+                <p>Small Furniture</p>
+            </div>
         </div>
     </section>
 
@@ -737,20 +947,17 @@
         <div class="testi-grid">
             <div class="testi-card">
                 <div class="stars">★★★★★</div>
-                <p>"The best collection of premium suiting in Shadnagar. The quality of fabric and their customer
-                    service is unmatched. Highly recommended!"</p>
+                <p>"The best supermarket in Shadnagar. The grocery section is always well-stocked and the home appliances floor has great deals!"</p>
                 <h4>- Rahul S.</h4>
             </div>
             <div class="testi-card">
                 <div class="stars">★★★★★</div>
-                <p>"I bought my festive wear from Big Bazaar Shadnagar and everyone loved it. They have the latest
-                    trends at very reasonable prices."</p>
+                <p>"I bought all my kitchenware from Bigg Bazar Shadnagar when we moved. They have the latest collections at very reasonable prices."</p>
                 <h4>- Priya M.</h4>
             </div>
             <div class="testi-card">
                 <div class="stars">★★★★★</div>
-                <p>"A complete family store. Got amazing outfits for my kids and a great shirt for myself. Will
-                    definitely visit again."</p>
+                <p>"A complete family store. Got fresh groceries on the ground floor and beautiful curtains on the 2nd floor. Will definitely visit again."</p>
                 <h4>- Vikram R.</h4>
             </div>
         </div>
@@ -781,9 +988,9 @@
                         <label for="interest">What are you looking for?</label>
                         <select id="interest" required>
                             <option value="">Select a category</option>
-                            <option value="mens-wear">Men's Ready-to-Wear</option>
-                            <option value="textiles">Premium Suiting & Shirting</option>
-                            <option value="ethnic">Ethnic & Festive Wear</option>
+                            <option value="gifts">Gifts & Toys (Ground Floor)</option>
+                            <option value="appliances">Appliances & Kitchenware (1st Floor)</option>
+                            <option value="plasticware">Plasticware & Luggage (2nd Floor)</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -817,7 +1024,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 Big Bazaar Shadnagar. All Rights Reserved.</p>
+            <p>&copy; 2024 Bigg Bazar Shadnagar. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -838,8 +1045,7 @@
             <button class="close-chat" id="closeChatBtn">&times;</button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot">Hi there! Welcome to Big Bazaar Shadnagar. Are you looking for Menswear, Ladies
-                Wear, or Kids Wear today?</div>
+            <div class="chat-msg bot">Hi there! Welcome to Bigg Bazar Shadnagar's complete China Bazaar Mall. Are you looking for Gifts, Kitchenware, Appliances, or Plasticware today?</div>
         </div>
         <div class="chat-footer">
             <input type="text" id="chatInput" placeholder="Type your message...">
@@ -933,8 +1139,8 @@
                     const userMsgEl = document.createElement('div');
                     userMsgEl.classList.add('chat-msg');
                     userMsgEl.style.alignSelf = 'flex-end';
-                    userMsgEl.style.backgroundColor = '#d4af37';
-                    userMsgEl.style.color = '#001f3f';
+                    userMsgEl.style.backgroundColor = '#ff6b35';
+                    userMsgEl.style.color = '#ffffff';
                     userMsgEl.textContent = message;
 
                     const msgContainer = document.createElement('div');
@@ -946,11 +1152,27 @@
                     chatInput.value = '';
                     chatBody.scrollTop = chatBody.scrollHeight;
 
+                    const lowerMsg = message.toLowerCase();
+
                     // Simple State Machine for Chat
                     setTimeout(() => {
+                        // Keyword handling before state machine
+                        if (lowerMsg.includes("kitchen") || lowerMsg.includes("appliance") || lowerMsg.includes("mixer") || lowerMsg.includes("fan") || lowerMsg.includes("iron")) {
+                            appendBotMessage("Our Kitchenware, Crockery, and Home Appliances (including mixers and fans) are located on the 1st Floor. Do you have a specific product in mind?");
+                            return;
+                        }
+                        if (lowerMsg.includes("gift") || lowerMsg.includes("toy") || lowerMsg.includes("stationery") || lowerMsg.includes("decor")) {
+                            appendBotMessage("Gifts, Toys, Stationery, and Seasonal Decor are located on the Ground Floor.");
+                            return;
+                        }
+                        if (lowerMsg.includes("plastic") || lowerMsg.includes("luggage") || lowerMsg.includes("clean") || lowerMsg.includes("furniture")) {
+                            appendBotMessage("Plasticware, Luggage, Cleaning Tools, and Small Furniture are located on the 2nd Floor.");
+                            return;
+                        }
+
                         if (chatState === 0) {
                             userInterest = message;
-                            appendBotMessage("Great choice! We have exclusive new arrivals for that. To share a special 10% discount code with you, could you please provide your Name and Phone Number?");
+                            appendBotMessage("Great! We have everything you need for your home. To share a special 10% discount code with you, could you please provide your Name and Phone Number?");
                             chatState++;
                         } else if (chatState === 1) {
                             userDetails = message;
